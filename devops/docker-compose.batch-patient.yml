@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  batch_and_web_patient:
+    container_name: batch_and_web_patient
+    build:
+      context: ..
+      network: host
+      args:
+        SPRING_ACTIVE_PROFILE: batch
+        BATCH_JOB_NAME: PATIENT
+        DATASOURCE_DRIVE: ${DATASOURCE_DRIVE}
+        DATASOURCE_URL: ${DATASOURCE_URL}
+        DATASOURCE_USERNAME: ${DATASOURCE_USERNAME}
+        DATASOURCE_PASSWORD: ${DATASOURCE_PASSWORD}
+    depends_on:
+      - postgres
+    networks:
+      - batch-and-web-network

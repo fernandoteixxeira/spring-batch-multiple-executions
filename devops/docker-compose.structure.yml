@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:10
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: batch-and-web
+    ports:
+      - 5432:5432
+    volumes:
+      - ../../volumes/postgres/database:/var/lib/postgresql/data
+    networks:
+      - batch-and-web-network
+
+networks:
+  batch-and-web-network:
+    driver: bridge

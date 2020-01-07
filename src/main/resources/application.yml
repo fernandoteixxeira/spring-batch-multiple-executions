@@ -1,0 +1,12 @@
+spring:
+  profiles.active: ${SPRING_ACTIVE_PROFILE:web,development}
+  datasource:
+    driver-class-name: ${DATASOURCE_DRIVE}
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+  flyway:
+    validate-on-migrate: false
+    baseline-on-migrate: true
+  batch:
+    initialize-schema: always

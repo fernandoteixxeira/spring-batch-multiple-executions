@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  batch_and_web:
+    container_name: batch_and_web
+    build:
+      context: ..
+      network: host
+      args:
+        SPRING_ACTIVE_PROFILE: web
+        BATCH_JOB_NAME:
+        DATASOURCE_DRIVE: ${DATASOURCE_DRIVE}
+        DATASOURCE_URL: ${DATASOURCE_URL}
+        DATASOURCE_USERNAME: ${DATASOURCE_USERNAME}
+        DATASOURCE_PASSWORD: ${DATASOURCE_PASSWORD}
+    ports:
+      - 8010:8010
+    depends_on:
+      - postgres
+    networks:
+      - batch-and-web-network
