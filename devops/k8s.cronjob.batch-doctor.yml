@@ -1,0 +1,14 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cronjob-batch-doctor
+spec:
+  schedule: "0/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: cronjob-batch-doctor
+              image: fernandotaa/batch_and_web_doctor:1.0.0
+          restartPolicy: Never

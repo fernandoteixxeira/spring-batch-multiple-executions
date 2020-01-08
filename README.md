@@ -48,6 +48,14 @@ This is a sample projet to prove that is possible the use of multiple executions
 ./devops$ docker-compose -f docker-compose.structure.yml -f docker-compose.batch-doctor.yml down
 ```
 
+### Using Kubernetes
+
+It is configured to run the batches for Patient and Doctor in addition the structure in Kubernetes.
+
+```shell script
+./devops$ kubectl create -f ./
+```
+
 ### Using Intellij
 
 Make sure it is running a PostgreSQL instance.
